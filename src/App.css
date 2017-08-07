@@ -1,0 +1,297 @@
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i');
+
+
+/*.meteors {
+  position: relative;
+  width: 100%;
+}
+
+.meteor {
+  position: absolute;
+  top: 50px;
+  left: 280px;
+  width: 300px;
+  height: 1px;
+  -webkit-transform: rotate(-45deg);
+  background-image: -webkit-linear-gradient(left, white, rgba(255,255,255,0));
+}
+.meteor:before {
+  content: ' ';
+  position: absolute;
+  width: 4px;
+  height: 5px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 14px 4px white;
+  margin-top: -2px;
+}
+.meteor:nth-child(1) {top: 100px;left: 20%;-webkit-animation: meteor 4s linear infinite;}
+.meteor:nth-child(2) {top: 200px;left: 40%;-webkit-animation: meteor 6s linear infinite;}
+.meteor:nth-child(3) {top: 250px;left: 60%;-webkit-animation: meteor 8s linear infinite;}
+.meteor:nth-child(4) {top: 250px;left: 80%;-webkit-animation: meteor 10s linear infinite;}
+.meteor:nth-child(5) {top: 250px;left: 70%;-webkit-animation: meteor 7s linear infinite;}
+.meteor:nth-child(6) {top: 250px;left: 50%;-webkit-animation: meteor 5s linear infinite;}
+@-webkit-keyframes meteor {
+  0% {margin-top: -300px; margin-right: -300px; opacity: 1}
+  8% {opacity: 0}
+  10% {margin-top: 300px; margin-left: -600px; opacity: 0}
+  100% {opacity: 0}
+}*/
+
+
+
+
+.App {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Ubuntu', sans-serif;
+  background: #8d35d6; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #8d35d6 0%, #6228a0 44%, #562596 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #8d35d6 0%,#6228a0 44%,#562596 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #8d35d6 0%,#6228a0 44%,#562596 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8d35d6', endColorstr='#562596',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  animation: gradientAnim 30s infinite;
+  animation-fill-mode: forwards;
+  position: relative;
+}
+
+.LoginModal{
+  width: calc(100% - 200px);
+  height: calc(100vh - 200px);
+  margin-top: 100px;
+  margin-left: 100px;
+  -webkit-box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
+  overflow-y: hidden;
+}
+
+.loginLeft{
+  float: left;
+  width: 40%;
+  background-color: #ffffff;
+  height: 100%;
+  text-align: left;
+  overflow-y: hidden;
+}
+
+.loginRight{
+  float: right;
+  width: 60%;
+  background-color: rgb(169, 16, 157);
+  height: 100%;
+  text-align: left;
+  padding: 50px;
+  color: #f7f7f7;
+  box-sizing: border-box;
+}
+
+.loginDescPrimary{
+  font-size: 30px;
+  font-weight: 400;
+  width: 51%;
+  float: left;
+}
+
+.loginDescSecondary{
+  font-size: 20px;
+  font-weight: 300;
+  margin-top: 25px;
+  line-height: 30px;
+  text-align: justify;
+}
+
+.loginSecondaryWrpr{
+  width: 51%;
+  float: left;
+  padding-right: 25px;
+  border-right: 1px solid #f7f7f7;
+}
+
+.loginHeading{
+  position: absolute;
+  top: 10%;
+  left: 50px;
+  font-size: 100px;
+  color: #000000;
+  font-weight: 700;
+}
+.loginInput{
+  position: absolute;
+  top: 50%;
+  opacity: 0;
+  width: 330px;
+  border-color: #562596;
+  padding: 10px;
+  height: 50px;
+  box-sizing: border-box;
+  left: 140px;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.passwordInput{
+  position: absolute;
+  top: 80%;
+  opacity: 0;
+  width: 330px;
+  border-color: #562596;
+  padding: 10px;
+  height: 50px;
+  box-sizing: border-box;
+  left: 140px;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.passwordAnimation{
+  top: 80%;
+  opacity: 0;
+  animation: firstPassAnim 0.4s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes firstPassAnim{
+  0%{
+    top: 80%;
+    opacity: 0;
+  }
+  100%{
+    top: calc(40% + 150px);
+    opacity: 1;
+  }
+}
+
+.secondAppearAnimation{
+  top: calc(40% + 250px);
+  opacity: 0;
+  animation: secondPassAnim 0.4s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes secondPassAnim{
+  0%{
+    top: calc(40% + 250px);
+    opacity: 0;
+  }
+  100%{
+    top: calc(20% + 250px);
+    opacity: 1;
+  }
+}
+
+.secondPasswordInput{
+  position: absolute;
+  top: calc(80% + 250px);
+  opacity: 0;
+  width: 330px;
+  border-color: #562596;
+  padding: 10px;
+  height: 50px;
+  box-sizing: border-box;
+  left: 140px;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.passwordButton{
+  position: absolute;
+  top: calc(80% + 250px);
+  opacity: 0;
+  padding: 10px;
+  height: 50px;
+  background-color: #562596;
+  color: #ffffff;
+  font-weight: 300;
+  border: 2px solid #562596;
+  left: 470px;
+  line-height: 24px;
+  text-align: center;
+  width: 150px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.loginButton{
+  position: absolute;
+  top: calc(40% + 150px);
+  padding: 10px;
+  height: 50px;
+  background-color: #562596;
+  color: #ffffff;
+  font-weight: 300;
+  border: 2px solid #562596;
+  left: 470px;
+  line-height: 24px;
+  text-align: center;
+  width: 100px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.loginAnimation{
+  top: calc(40% + 150px);
+  opacity: 1;
+  animation: animateLogin 0.4s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animateLogin{
+  0%{
+    top: calc(40% + 150px);
+    opacity: 1;
+  }
+  100%{
+    top: 20%;
+    opacity: 0;
+  }
+}
+
+.appearAnimation{
+  top: 30%;
+  opacity: 0;
+  animation: appearAnim 0.4s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes appearAnim{
+  0%{
+    top: 30%;
+    opacity: 0;
+  }
+  100%{
+    top: calc(20% + 150px);
+    opacity: 1;
+  }
+}
